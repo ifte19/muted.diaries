@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Muted Diaries</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Muted Diaries</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 html { scroll-behavior: smooth; }
@@ -18,13 +18,14 @@ body {
 
 /* HEADER */
 header {
-  padding: 80px 20px 40px;
-  animation: slideUp 1.2s ease;
+  padding: 90px 20px 50px;
+  animation: intro 1.2s ease;
 }
 
 h1 {
-  font-size: 48px;
+  font-size: 50px;
   letter-spacing: 2px;
+  margin-bottom: 10px;
 }
 
 nav {
@@ -33,7 +34,7 @@ nav {
 
 nav a {
   color: #3b82f6;
-  margin: 0 15px;
+  margin: 0 12px;
   text-decoration: none;
   font-weight: bold;
   transition: 0.3s;
@@ -44,17 +45,16 @@ nav a:hover { color: white; }
 /* HERO STRIP */
 .hero-strip {
   display: flex;
-  gap: 20px;
+  gap: 15px;
   overflow-x: auto;
-  padding: 40px 10%;
-  justify-content: center;
+  padding: 30px 10%;
 }
 
 .hero-strip img {
-  width: 220px;
-  height: 150px;
+  width: 210px;
+  height: 140px;
   object-fit: cover;
-  border-radius: 15px;
+  border-radius: 12px;
   transition: 0.4s;
   filter: brightness(0.85);
 }
@@ -65,13 +65,26 @@ nav a:hover { color: white; }
 }
 
 /* SECTIONS */
-section { padding: 70px 20px; }
+section {
+  padding: 80px 20px;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
 
-h2 { margin-bottom: 30px; }
+section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+h2 {
+  margin-bottom: 30px;
+  letter-spacing: 1px;
+}
 
 /* BIO */
 .bio {
-  max-width: 800px;
+  max-width: 850px;
   margin: auto;
   text-align: justify;
   line-height: 1.8;
@@ -81,17 +94,16 @@ h2 { margin-bottom: 30px; }
 /* GALLERY */
 .gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 15px;
   padding: 20px;
 }
 
 .gallery img {
   width: 100%;
-  border-radius: 12px;
+  border-radius: 10px;
   cursor: pointer;
   transition: 0.4s;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
 }
 
 .gallery img:hover {
@@ -103,17 +115,16 @@ h2 { margin-bottom: 30px; }
   display: none;
   position: fixed;
   z-index: 1000;
-  padding-top: 50px;
   left: 0; top: 0;
   width: 100%; height: 100%;
-  background-color: rgba(0,0,0,0.9);
+  background: rgba(0,0,0,0.95);
+  text-align: center;
 }
 
 #popup img {
-  margin: auto;
-  display: block;
   max-width: 90%;
-  max-height: 80vh;
+  max-height: 85vh;
+  margin-top: 50px;
   border-radius: 10px;
 }
 
@@ -128,7 +139,7 @@ h2 { margin-bottom: 30px; }
 /* FOOTER */
 footer {
   background: #1e293b;
-  padding: 50px 20px;
+  padding: 60px 20px;
 }
 
 footer a {
@@ -147,13 +158,14 @@ footer a:hover { color: white; }
   color: white;
   border-radius: 8px;
   text-decoration: none;
+  transition: 0.3s;
 }
 
 .email-btn:hover { background: #2563eb; }
 
-/* Animation */
-@keyframes slideUp {
-  from { opacity: 0; transform: translateY(40px); }
+/* Animations */
+@keyframes intro {
+  from { opacity: 0; transform: translateY(50px); }
   to { opacity: 1; transform: translateY(0); }
 }
 </style>
@@ -162,100 +174,133 @@ footer a:hover { color: white; }
 <body>
 
 <header>
-  <h1>Muted Diaries</h1>
-  <p>Photography by Iftekar Uddin</p>
+<h1>Muted Diaries</h1>
+<p>Photography by Iftekar Uddin</p>
 
-  <nav>
-    <a href="#bio">About</a>
-    <a href="#street">Street</a>
-    <a href="#stillness">Stillness</a>
-    <a href="#nature">Nature</a>
-    <a href="#cats">Cats</a>
-  </nav>
+<nav>
+<a href="#bio">About</a>
+<a href="#street">Street</a>
+<a href="#stillness">Stillness</a>
+<a href="#nature">Nature</a>
+<a href="#sky">Sky</a>
+<a href="#cats">Cats</a>
+<a href="#frames">Frames</a>
+</nav>
 </header>
 
 <!-- HERO STRIP -->
 <div class="hero-strip">
-  <img src="2026_01_04_08_16_IMG_3619.jpg">
-  <img src="2026_01_04_15_32_IMG_3799.jpg">
-  <img src="IMG_5625.jpg">
-  <img src="IMG_4951.jpg">
+<img src="https://i.imgur.com/QwoKwSO.jpeg">
+<img src="https://i.imgur.com/nNxrbGG.jpeg">
+<img src="https://i.imgur.com/YxulgA7.jpeg">
+<img src="https://i.imgur.com/BXJt57l.jpeg">
+<img src="https://i.imgur.com/q9d7u7B.jpeg">
 </div>
 
 <section id="bio">
-  <h2>About Me</h2>
-  <div class="bio">
-    <p>
-      Hi, I’m Iftekar Uddin, a 23-year-old photography enthusiast and third-year student at CUET.
-      Photography is not just capturing images — it is emotion, silence, light, and storytelling.
-      Muted Diaries is my visual diary where street moments, still frames, abstract forms,
-      and nature’s calm beauty come together.
-    </p>
-    <p>
-      I am open for collaborations and paid projects.
-      Feel free to DM or email for any professional inquiries.
-    </p>
-  </div>
+<h2>About Me</h2>
+<div class="bio">
+<p>
+Hi, I’m Iftekar Uddin, a 23-year-old photography enthusiast and third-year student at CUET.
+Photography for me is about emotion, silence, light, and storytelling.
+Muted Diaries is my visual diary where street moments, stillness, skies, nature,
+and framed perspectives come together.
+</p>
+<p>
+I am open for collaborations and paid projects.
+Feel free to DM or email for professional inquiries.
+</p>
+</div>
 </section>
 
 <section id="street">
-  <h2>Street Photography</h2>
-  <div class="gallery">
-    <img src="2026_01_04_08_16_IMG_3619.jpg" onclick="openPopup(this.src)">
-  </div>
+<h2>Street</h2>
+<div class="gallery">
+<img src="https://i.imgur.com/QwoKwSO.jpeg" onclick="openPopup(this.src)">
+</div>
 </section>
 
 <section id="stillness">
-  <h2>Stillness</h2>
-  <div class="gallery">
-    <img src="2026_01_04_15_32_IMG_3799.jpg" onclick="openPopup(this.src)">
-    <img src="IMG_4951.jpg" onclick="openPopup(this.src)">
-  </div>
+<h2>Stillness</h2>
+<div class="gallery">
+<img src="https://i.imgur.com/BXJt57l.jpeg" onclick="openPopup(this.src)">
+<img src="https://i.imgur.com/MUx7nQU.jpeg" onclick="openPopup(this.src)">
+<img src="https://i.imgur.com/T4Ze6bE.jpeg" onclick="openPopup(this.src)">
+<img src="https://i.imgur.com/rNFFQ5R.jpeg" onclick="openPopup(this.src)">
+</div>
 </section>
 
 <section id="nature">
-  <h2>Nature</h2>
-  <div class="gallery">
-    <img src="2026_02_03_17_22_IMG_5318.jpg" onclick="openPopup(this.src)">
-    <img src="IMG_5625.jpg" onclick="openPopup(this.src)">
-  </div>
+<h2>Nature</h2>
+<div class="gallery">
+<img src="https://i.imgur.com/nNxrbGG.jpeg" onclick="openPopup(this.src)">
+<img src="https://i.imgur.com/jCSLRF9.jpeg" onclick="openPopup(this.src)">
+<img src="https://i.imgur.com/RoKOR2l.jpeg" onclick="openPopup(this.src)">
+<img src="https://i.imgur.com/kI0tATb.jpeg" onclick="openPopup(this.src)">
+</div>
+</section>
+
+<section id="sky">
+<h2>Sky</h2>
+<div class="gallery">
+<img src="https://i.imgur.com/YxulgA7.jpeg" onclick="openPopup(this.src)">
+<img src="https://i.imgur.com/TxUabPA.jpeg" onclick="openPopup(this.src)">
+<img src="https://i.imgur.com/5tg39Gy.jpeg" onclick="openPopup(this.src)">
+</div>
 </section>
 
 <section id="cats">
-  <h2>Cat Photography</h2>
-  <div class="gallery">
-    <img src="IMG_4951.jpg" onclick="openPopup(this.src)">
-  </div>
+<h2>Cat Photography</h2>
+<div class="gallery">
+<img src="https://i.imgur.com/q9d7u7B.jpeg" onclick="openPopup(this.src)">
+</div>
+</section>
+
+<section id="frames">
+<h2>Frames Within Frames</h2>
+<div class="gallery">
+<img src="https://i.imgur.com/bHL3Yaf.jpeg" onclick="openPopup(this.src)">
+</div>
 </section>
 
 <footer>
-  <h3>DM for Paid Work</h3>
+<h3>DM for Paid Work</h3>
 
-  <a href="https://www.facebook.com/muted.diaries" target="_blank">Facebook</a>
-  <a href="https://www.instagram.com/muted_diaries/" target="_blank">Instagram</a>
-  <a href="https://www.linkedin.com/in/ifftiih/" target="_blank">LinkedIn</a>
-  <a href="https://www.youtube.com/channel/UCNhxdlFe4CDioZsS0RMXpng" target="_blank">YouTube</a>
+<a href="https://www.facebook.com/muted.diaries" target="_blank">Facebook</a>
+<a href="https://www.instagram.com/muted_diaries/" target="_blank">Instagram</a>
+<a href="https://www.linkedin.com/in/ifftiih/" target="_blank">LinkedIn</a>
+<a href="https://www.youtube.com/channel/UCNhxdlFe4CDioZsS0RMXpng" target="_blank">YouTube</a>
 
-  <br>
-  <a href="mailto:moh.ifte.1119@gmail.com" class="email-btn">Email Me</a>
+<br>
+<a href="mailto:moh.ifte.1119@gmail.com" class="email-btn">Email Me</a>
 
-  <p style="margin-top:20px; color:#94a3b8;">© 2026 Muted Diaries</p>
+<p style="margin-top:20px; color:#94a3b8;">© 2026 Muted Diaries</p>
 </footer>
 
-<!-- POPUP -->
 <div id="popup">
-  <span onclick="closePopup()">&times;</span>
-  <img id="popup-img">
+<span onclick="closePopup()">&times;</span>
+<img id="popup-img">
 </div>
 
 <script>
-function openPopup(src) {
-  document.getElementById("popup").style.display = "block";
-  document.getElementById("popup-img").src = src;
+function openPopup(src){
+document.getElementById("popup").style.display="block";
+document.getElementById("popup-img").src=src;
 }
-function closePopup() {
-  document.getElementById("popup").style.display = "none";
+function closePopup(){
+document.getElementById("popup").style.display="none";
 }
+
+/* Scroll animation */
+const sections = document.querySelectorAll("section");
+window.addEventListener("scroll", () => {
+sections.forEach(sec => {
+const top = sec.getBoundingClientRect().top;
+if(top < window.innerHeight - 100){
+sec.classList.add("visible");
+}
+});
+});
 </script>
 
 </body>
