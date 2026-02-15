@@ -16,9 +16,9 @@ body {
   text-align: center;
 }
 
-/* Intro Animation */
+/* HEADER */
 header {
-  padding: 80px 20px 50px;
+  padding: 80px 20px 40px;
   animation: slideUp 1.2s ease;
 }
 
@@ -27,20 +27,49 @@ h1 {
   letter-spacing: 2px;
 }
 
+nav {
+  margin-top: 20px;
+}
+
 nav a {
   color: #3b82f6;
   margin: 0 15px;
   text-decoration: none;
   font-weight: bold;
+  transition: 0.3s;
 }
 
 nav a:hover { color: white; }
 
+/* HERO STRIP */
+.hero-strip {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding: 40px 10%;
+  justify-content: center;
+}
+
+.hero-strip img {
+  width: 220px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 15px;
+  transition: 0.4s;
+  filter: brightness(0.85);
+}
+
+.hero-strip img:hover {
+  transform: scale(1.05);
+  filter: brightness(1);
+}
+
+/* SECTIONS */
 section { padding: 70px 20px; }
 
 h2 { margin-bottom: 30px; }
 
-/* Justified Bio */
+/* BIO */
 .bio {
   max-width: 800px;
   margin: auto;
@@ -49,7 +78,7 @@ h2 { margin-bottom: 30px; }
   color: #cbd5e1;
 }
 
-/* Smaller Gallery */
+/* GALLERY */
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -62,14 +91,14 @@ h2 { margin-bottom: 30px; }
   border-radius: 12px;
   cursor: pointer;
   transition: 0.4s;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
 }
 
 .gallery img:hover {
   transform: scale(1.05);
-  opacity: 0.9;
 }
 
-/* Popup Viewer */
+/* POPUP */
 #popup {
   display: none;
   position: fixed;
@@ -96,7 +125,7 @@ h2 { margin-bottom: 30px; }
   cursor: pointer;
 }
 
-/* Footer */
+/* FOOTER */
 footer {
   background: #1e293b;
   padding: 50px 20px;
@@ -135,24 +164,36 @@ footer a:hover { color: white; }
 <header>
   <h1>Muted Diaries</h1>
   <p>Photography by Iftekar Uddin</p>
+
   <nav>
     <a href="#bio">About</a>
     <a href="#street">Street</a>
-    <a href="#abstract">Abstract</a>
+    <a href="#stillness">Stillness</a>
     <a href="#nature">Nature</a>
+    <a href="#cats">Cats</a>
   </nav>
 </header>
+
+<!-- HERO STRIP -->
+<div class="hero-strip">
+  <img src="2026_01_04_08_16_IMG_3619.jpg">
+  <img src="2026_01_04_15_32_IMG_3799.jpg">
+  <img src="IMG_5625.jpg">
+  <img src="IMG_4951.jpg">
+</div>
 
 <section id="bio">
   <h2>About Me</h2>
   <div class="bio">
     <p>
       Hi, I’m Iftekar Uddin, a 23-year-old photography enthusiast and third-year student at CUET.
-      Photography is not just capturing images for me — it is about emotion, silence, light, and storytelling.
-      Muted Diaries is my visual diary where street moments, abstract forms, and nature’s calm beauty come together.
+      Photography is not just capturing images — it is emotion, silence, light, and storytelling.
+      Muted Diaries is my visual diary where street moments, still frames, abstract forms,
+      and nature’s calm beauty come together.
     </p>
     <p>
-      I am open for collaborations and paid projects. Feel free to DM or email for any professional work inquiries.
+      I am open for collaborations and paid projects.
+      Feel free to DM or email for any professional inquiries.
     </p>
   </div>
 </section>
@@ -161,21 +202,29 @@ footer a:hover { color: white; }
   <h2>Street Photography</h2>
   <div class="gallery">
     <img src="2026_01_04_08_16_IMG_3619.jpg" onclick="openPopup(this.src)">
-    <!-- Add more street photos here -->
   </div>
 </section>
 
-<section id="abstract">
-  <h2>Abstract Photography</h2>
+<section id="stillness">
+  <h2>Stillness</h2>
   <div class="gallery">
-    <img src="2026_01_04_15_33_IMG_3805.jpg" onclick="openPopup(this.src)">
+    <img src="2026_01_04_15_32_IMG_3799.jpg" onclick="openPopup(this.src)">
+    <img src="IMG_4951.jpg" onclick="openPopup(this.src)">
   </div>
 </section>
 
 <section id="nature">
-  <h2>Nature Photography</h2>
+  <h2>Nature</h2>
   <div class="gallery">
     <img src="2026_02_03_17_22_IMG_5318.jpg" onclick="openPopup(this.src)">
+    <img src="IMG_5625.jpg" onclick="openPopup(this.src)">
+  </div>
+</section>
+
+<section id="cats">
+  <h2>Cat Photography</h2>
+  <div class="gallery">
+    <img src="IMG_4951.jpg" onclick="openPopup(this.src)">
   </div>
 </section>
 
@@ -193,7 +242,7 @@ footer a:hover { color: white; }
   <p style="margin-top:20px; color:#94a3b8;">© 2026 Muted Diaries</p>
 </footer>
 
-<!-- Popup Viewer -->
+<!-- POPUP -->
 <div id="popup">
   <span onclick="closePopup()">&times;</span>
   <img id="popup-img">
@@ -204,7 +253,6 @@ function openPopup(src) {
   document.getElementById("popup").style.display = "block";
   document.getElementById("popup-img").src = src;
 }
-
 function closePopup() {
   document.getElementById("popup").style.display = "none";
 }
