@@ -5,119 +5,129 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    html {
-      scroll-behavior: smooth;
-    }
+<style>
+html { scroll-behavior: smooth; }
 
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: #0f172a;
-      color: white;
-      text-align: center;
-    }
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #0f172a;
+  color: white;
+  text-align: center;
+}
 
-    header {
-      padding: 70px 20px 40px;
-      animation: fadeIn 1.2s ease-in-out;
-    }
+/* Intro Animation */
+header {
+  padding: 80px 20px 50px;
+  animation: slideUp 1.2s ease;
+}
 
-    h1 {
-      font-size: 48px;
-      margin-bottom: 10px;
-      letter-spacing: 2px;
-    }
+h1 {
+  font-size: 48px;
+  letter-spacing: 2px;
+}
 
-    nav {
-      margin-top: 25px;
-    }
+nav a {
+  color: #3b82f6;
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: bold;
+}
 
-    nav a {
-      color: #3b82f6;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: 0.3s;
-    }
+nav a:hover { color: white; }
 
-    nav a:hover {
-      color: white;
-    }
+section { padding: 70px 20px; }
 
-    section {
-      padding: 70px 20px;
-    }
+h2 { margin-bottom: 30px; }
 
-    h2 {
-      margin-bottom: 30px;
-      font-size: 28px;
-      letter-spacing: 1px;
-    }
+/* Justified Bio */
+.bio {
+  max-width: 800px;
+  margin: auto;
+  text-align: justify;
+  line-height: 1.8;
+  color: #cbd5e1;
+}
 
-    .bio {
-      max-width: 800px;
-      margin: auto;
-      color: #cbd5e1;
-      line-height: 1.7;
-      font-size: 16px;
-    }
+/* Smaller Gallery */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
 
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 25px;
-      padding: 20px;
-    }
+.gallery img {
+  width: 100%;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.4s;
+}
 
-    .gallery img {
-      width: 100%;
-      border-radius: 18px;
-      transition: 0.4s;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-    }
+.gallery img:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
 
-    .gallery img:hover {
-      transform: scale(1.05);
-    }
+/* Popup Viewer */
+#popup {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  padding-top: 50px;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.9);
+}
 
-    footer {
-      background: #1e293b;
-      padding: 50px 20px;
-    }
+#popup img {
+  margin: auto;
+  display: block;
+  max-width: 90%;
+  max-height: 80vh;
+  border-radius: 10px;
+}
 
-    footer a {
-      display: inline-block;
-      margin: 10px 15px;
-      color: #3b82f6;
-      text-decoration: none;
-      transition: 0.3s;
-    }
+#popup span {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  font-size: 40px;
+  cursor: pointer;
+}
 
-    footer a:hover {
-      color: white;
-    }
+/* Footer */
+footer {
+  background: #1e293b;
+  padding: 50px 20px;
+}
 
-    .email-btn {
-      display: inline-block;
-      margin-top: 15px;
-      padding: 10px 20px;
-      background: #3b82f6;
-      color: white;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: 0.3s;
-    }
+footer a {
+  margin: 10px 15px;
+  color: #3b82f6;
+  text-decoration: none;
+}
 
-    .email-btn:hover {
-      background: #2563eb;
-    }
+footer a:hover { color: white; }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-  </style>
+.email-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: #3b82f6;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+.email-btn:hover { background: #2563eb; }
+
+/* Animation */
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+</style>
 </head>
 
 <body>
@@ -125,7 +135,6 @@
 <header>
   <h1>Muted Diaries</h1>
   <p>Photography by Iftekar Uddin</p>
-
   <nav>
     <a href="#bio">About</a>
     <a href="#street">Street</a>
@@ -139,12 +148,11 @@
   <div class="bio">
     <p>
       Hi, I’m Iftekar Uddin, a 23-year-old photography enthusiast and third-year student at CUET.
-      Photography for me is more than capturing images — it is emotion, light, silence, and storytelling.
+      Photography is not just capturing images for me — it is about emotion, silence, light, and storytelling.
+      Muted Diaries is my visual diary where street moments, abstract forms, and nature’s calm beauty come together.
     </p>
     <p>
-      I started my journey with mobile photography, discovering beauty in everyday moments.
-      Muted Diaries is my visual diary — where street life, abstract forms, and nature's calm atmosphere meet.
-      Every frame reflects how I see the world: quiet, raw, and meaningful.
+      I am open for collaborations and paid projects. Feel free to DM or email for any professional work inquiries.
     </p>
   </div>
 </section>
@@ -152,26 +160,27 @@
 <section id="street">
   <h2>Street Photography</h2>
   <div class="gallery">
-    <img src="2026_01_04_08_16_IMG_3619.jpg">
+    <img src="2026_01_04_08_16_IMG_3619.jpg" onclick="openPopup(this.src)">
+    <!-- Add more street photos here -->
   </div>
 </section>
 
 <section id="abstract">
   <h2>Abstract Photography</h2>
   <div class="gallery">
-    <img src="2026_01_04_15_33_IMG_3805.jpg">
+    <img src="2026_01_04_15_33_IMG_3805.jpg" onclick="openPopup(this.src)">
   </div>
 </section>
 
 <section id="nature">
   <h2>Nature Photography</h2>
   <div class="gallery">
-    <img src="2026_02_03_17_22_IMG_5318.jpg">
+    <img src="2026_02_03_17_22_IMG_5318.jpg" onclick="openPopup(this.src)">
   </div>
 </section>
 
 <footer>
-  <h3>Connect With Me</h3>
+  <h3>DM for Paid Work</h3>
 
   <a href="https://www.facebook.com/muted.diaries" target="_blank">Facebook</a>
   <a href="https://www.instagram.com/muted_diaries/" target="_blank">Instagram</a>
@@ -179,11 +188,27 @@
   <a href="https://www.youtube.com/channel/UCNhxdlFe4CDioZsS0RMXpng" target="_blank">YouTube</a>
 
   <br>
-
   <a href="mailto:moh.ifte.1119@gmail.com" class="email-btn">Email Me</a>
 
   <p style="margin-top:20px; color:#94a3b8;">© 2026 Muted Diaries</p>
 </footer>
+
+<!-- Popup Viewer -->
+<div id="popup">
+  <span onclick="closePopup()">&times;</span>
+  <img id="popup-img">
+</div>
+
+<script>
+function openPopup(src) {
+  document.getElementById("popup").style.display = "block";
+  document.getElementById("popup-img").src = src;
+}
+
+function closePopup() {
+  document.getElementById("popup").style.display = "none";
+}
+</script>
 
 </body>
 </html>
